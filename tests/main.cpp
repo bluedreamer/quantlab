@@ -10,7 +10,7 @@
 TEST_CASE("Message Types", "[types]")
 {
    Trade trade(123, "abc", 1, 1);
-   REQUIRE(trade.GetMsgType() == Message::MsgType::Unknown);
+   REQUIRE(trade.GetMsgType() == Message::MsgType::Trade);
 }
 
 TEST_CASE("Test parsing of first entry", "[parser]")
