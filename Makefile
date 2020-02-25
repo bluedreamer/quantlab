@@ -4,7 +4,7 @@ BINARY=parser
 TEST_BINARY=tests/test_parser
 CC=gcc
 CXX=g++
-SRC=main.cpp template.cpp
+SRC=Market.cpp CSVParser.cpp Parser.cpp
 TEST_SRC=tests/main.cpp
 OBJS=$(SRC:.cpp=.o)
 TEST_OBJS=$(TEST_SRC:.cpp=.o)
@@ -18,11 +18,11 @@ LFLAGS=
 
 all: ${BINARY} ${TEST_BINARY} run_tests
 
-${BINARY}: ${OBJS}
-	${CXX} -o $@ ${OBJS} ${LIBS} ${LFLAGS}
+${BINARY}: ${OBJS} main.cpp
+	${CXX} -o $@ ${OBJS} main.o ${LIBS} ${LFLAGS}
 
 ${TEST_BINARY}: ${TEST_OBJS} ${OBJS}
-	${CXX} -o $@ ${TEST_OBJS} ${LIBS} ${LFLAGS}
+	${CXX} -o $@ ${TEST_OBJS} ${LIBS} ${LFLAGS} ${OBJS}
 
 run_tests: ${TEST_BINARY}
 	${TEST_BINARY}

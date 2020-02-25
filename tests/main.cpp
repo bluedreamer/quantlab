@@ -12,8 +12,8 @@ TEST_CASE("Test parsing of first entry", "[parser]")
 
    auto message = parser.GetMessage();
    REQUIRE(message);
-   REQUIRE(message->GetTimestamp() = 1300037511);
-   REQUIRE(message->GetSymbol() = std::string("gcg"));
-   REQUIRE(message->GetVolume() = 49);
-   REQUIRE(message->GetPrice() = 72);
+   REQUIRE(message->GetTimestamp() == 1300037511);
+   REQUIRE(message->GetSymbol() == std::string("gcg"));
+   REQUIRE(message->GetVolume() == 49);
+   REQUIRE(message->GetPrice() == 72);
 }
