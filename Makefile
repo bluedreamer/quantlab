@@ -4,7 +4,7 @@ BINARY=parser
 TEST_BINARY=tests/test_parser
 CC=gcc
 CXX=g++
-SRC=Market.cpp CSVParser.cpp Parser.cpp
+SRC=CSVParser.cpp Market.cpp Message.cpp Parser.cpp Trade.cpp
 TEST_SRC=tests/main.cpp
 OBJS=$(SRC:.cpp=.o)
 TEST_OBJS=$(TEST_SRC:.cpp=.o)

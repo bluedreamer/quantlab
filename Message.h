@@ -1,21 +1,28 @@
 #pragma once
 
+#include <string>
+
 class Message
 {
 public:
-   Message()                = default;
+   using TimeStamp = uint64_t;
+   using Symbol = std::string;
+   using Volume = uint64_t;
+   using Price = uint64_t;
+   Message(TimeStamp timestamp, Symbol symbol);
    virtual ~Message()               = 0;
    Message(const Message &) = default;
    Message(Message &&)      = default;
    Message &operator=(const Message &) = default;
    Message &operator=(Message &&) = default;
 
-   virtual uint64_t GetTimestamp() const = 0;
-   virtual const std::string &GetSymbol() const = 0;
-   virtual uint64_t GetVolume() const = 0;
-   virtual uint64_t GetPrice() const = 0;
-
+   TimeStamp GetTimestamp() const;
+   const Symbol &GetSymbol() const;
+   virtual Volume GetVolume() const = 0;
+   virtual Price GetPrice() const = 0;
 private:
+   TimeStamp timestamp_{0};
+   Symbol symbol_;
 };
 
 inline Message::~Message()

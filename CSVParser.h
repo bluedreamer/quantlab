@@ -1,5 +1,8 @@
 #pragma once
 
+#include <string>
+#include <vector>
+
 #include "Parser.h"
 
 class CSVParser : public Parser
@@ -14,6 +17,7 @@ public:
 
    std::shared_ptr<Message> GetMessage() override;
 private:
+   static std::vector<std::string> split(std::string message);
 };
 
 // vim: ts=3 sw=3 ai et nohls mps=(\:),{\:},[\:],<\:> ff=unix ffs=unix bg=dark

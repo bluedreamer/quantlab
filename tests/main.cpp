@@ -7,12 +7,12 @@
 
 TEST_CASE("Test parsing of first entry", "[parser]")
 {
-   std::ifstream in("../test_data/input.csv");
+   std::ifstream in("test_data/input.csv");
    CSVParser parser(in);
 
    auto message = parser.GetMessage();
    REQUIRE(message);
-   REQUIRE(message->GetTimestamp() == 1300037511);
+   REQUIRE(message->GetTimestamp() == 51300037511);
    REQUIRE(message->GetSymbol() == std::string("gcg"));
    REQUIRE(message->GetVolume() == 49);
    REQUIRE(message->GetPrice() == 72);
