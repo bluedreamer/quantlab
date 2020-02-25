@@ -1,6 +1,8 @@
 #pragma once
 
 #include <memory>
+#include <string>
+#include <vector>
 
 class Parser;
 
@@ -14,7 +16,9 @@ public:
    Market &operator=(const Market &) = default;
    Market &operator=(Market &&) = default;
 
-   void Function();
+   void Process();
+   uint64_t MessageCount() const;
+   std::vector<std::string> GetSymbols() const;
 
 private:
    std::unique_ptr<Parser> parser_;

@@ -18,7 +18,9 @@ LFLAGS=
 
 all: ${BINARY} ${TEST_BINARY} run_tests
 
-${BINARY}: ${OBJS} main.cpp
+main.o: main.cpp
+
+${BINARY}: ${OBJS} main.o
 	${CXX} -o $@ ${OBJS} main.o ${LIBS} ${LFLAGS}
 
 ${TEST_BINARY}: ${TEST_OBJS} ${OBJS}
@@ -30,7 +32,7 @@ run_tests: ${TEST_BINARY}
 .PHONY: clean run_tests
 
 clean:
-	rm -f ${OBJS} ${DEPS} ${BINARY} ${TEST_BINARY} ${TEST_OBJS}
+	rm -f ${OBJS} ${DEPS} ${BINARY} ${TEST_BINARY} ${TEST_OBJS} main.o main.d
 
 git_clean:
 	git clean -xf

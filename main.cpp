@@ -28,7 +28,7 @@ int main(int argc, char *argv[])
 
    Market market(std::move(parser));
 
-   market.Function();
+   market.Process();
 
    return 0;
 }

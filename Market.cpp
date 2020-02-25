@@ -6,8 +6,18 @@ Market::Market(std::unique_ptr<Parser> parser)
 {
 }
 
-void Market::Function()
+void Market::Process()
 {
+}
+
+uint64_t Market::MessageCount() const
+{
+   return 0;
+}
+
+std::vector<std::string> Market::GetSymbols() const
+{
+   return {};
 }
 
 // vim: ts=3 sw=3 ai et nohls mps=(\:),{\:},[\:],<\:> ff=unix ffs=unix bg=dark

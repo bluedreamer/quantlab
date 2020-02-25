@@ -4,6 +4,7 @@
 #define CATCH_CONFIG_MAIN
 #include <catch2/catch.hpp>
 #include "../CSVParser.h"
+#include "../Market.h"
 
 TEST_CASE("Test parsing of first entry", "[parser]")
 {
@@ -56,4 +57,18 @@ TEST_CASE("Test bad_trade5.csv", "[parser]")
    CSVParser parser(in);
 
    auto message = parser.GetMessage();
+}
+
+TEST_CASE("Test parsing of input file", "[market]")
+{
+   std::ifstream in("test_data/input.csv");
+   auto parser = std::make_unique<CSVParser>(in);
+
+   Market market(std::move(parser));
+
+   market.Process();
+
+   REQUIRE(market.MessageCount() == 1);
+   REQUIRE(market.GetSymbols().size() == 1);
+
 }
