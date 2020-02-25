@@ -2,7 +2,7 @@
 #include "Trade.h"
 
 Trade::Trade(Message::TimeStamp timestamp, Message::Symbol symbol, Message::Volume volume, Message::Price price)
-   :Message(timestamp, std::move(symbol))
+   :Message(MsgType::Trade, timestamp, std::move(symbol))
    , volume_(volume)
    , price_(price)
 {

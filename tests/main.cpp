@@ -5,6 +5,13 @@
 #include <catch2/catch.hpp>
 #include "../CSVParser.h"
 #include "../Market.h"
+#include "../Trade.h"
+
+TEST_CASE("Message Types", "[types]")
+{
+   Trade trade(123, "abc", 1, 1);
+   REQUIRE(trade.GetMsgType() == Message::MsgType::Unknown);
+}
 
 TEST_CASE("Test parsing of first entry", "[parser]")
 {
