@@ -3,14 +3,15 @@
 class Example
 {
 public:
-   Example()=default;
-   ~Example()=default;
-   Example(const Example&)=default;
-   Example(Example&&)=default;
-   Example &operator=(const Example&)=default;
-   Example &operator=(Example&&)=default;
+   Example()                = default;
+   ~Example()               = default;
+   Example(const Example &) = default;
+   Example(Example &&)      = default;
+   Example &operator=(const Example &) = default;
+   Example &operator=(Example &&) = default;
 
    void Function();
+
 private:
 };
 

@@ -1,12 +1,12 @@
-#include <iostream>
-#include <sstream>
-#include <vector>
-#include <map>
 #include <fstream>
+#include <iostream>
+#include <map>
+#include <sstream>
 #include <string>
+#include <vector>
 
-#include "template.h"
 #include "public.h"
+#include "template.h"
 
 int main(int argc, char *argv[])
 {
