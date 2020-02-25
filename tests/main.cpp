@@ -1,15 +1,19 @@
+#include <iostream>
+#include <fstream>
+
 #define CATCH_CONFIG_MAIN
 #include <catch2/catch.hpp>
+#include "../CSVParser.h"
 
-unsigned int Factorial(unsigned int number)
+TEST_CASE("Test parsing of first entry", "[parser]")
 {
-   return number <= 1 ? number : Factorial(number - 1) * number;
-}
+   std::ifstream in("../test_data/input.csv");
+   CSVParser parser(in);
 
-TEST_CASE("Factorials are computed", "[factorial]")
-{
-   REQUIRE(Factorial(1) == 2);
-   REQUIRE(Factorial(2) == 2);
-   REQUIRE(Factorial(3) == 6);
-   REQUIRE(Factorial(10) == 3628800);
+   auto message = parser.GetMessage();
+   REQUIRE(message);
+   REQUIRE(message->GetTimestamp() = 1300037511);
+   REQUIRE(message->GetSymbol() = std::string("gcg"));
+   REQUIRE(message->GetVolume() = 49);
+   REQUIRE(message->GetPrice() = 72);
 }
