@@ -3,6 +3,9 @@
 ## How to build
 Just type `make`. This will build `parser` and `tests/test_parser` executables. Also a standard make will run the unit tests
 
+## How to run
+After building - it can be run with `./parser test_data/input.csv`
+
 ## Directories
 
 .
