@@ -12,6 +12,7 @@ void Market::Process()
 {
    while(auto message = parser_->GetMessage())
    {
+      processMessage(message);
    }
 }
 
