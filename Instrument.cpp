@@ -14,6 +14,11 @@ void Instrument::Trade(uint64_t timestamp, uint64_t volume, uint64_t price)
    last_trade_time_ = timestamp;
    total_volume_ += volume;
    total_value_traded_ += volume * price;
+
+   if(price > high_)
+   {
+      high_ = price;
+   }
 }
 
 uint64_t Instrument::GetTotalVolume() const
