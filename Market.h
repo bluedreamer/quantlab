@@ -4,6 +4,7 @@
 #include <string>
 #include <vector>
 #include <map>
+#include <iostream>
 
 #include "Instrument.h"
 
@@ -24,6 +25,15 @@ public:
    uint64_t MessageCount() const;
    std::vector<std::string> GetSymbols() const;
    const Instrument &FindInstrument(const std::string &symbol) const;
+   
+   template<typename Formatter>
+   void Output(std::ostream &out, Formatter formatter)
+   {
+      for(const auto &[symbol, instrument] : data_)
+      {
+         out << formatter(symbol, instrument) << std::endl;
+      }
+   }
 private:
    std::unique_ptr<Parser> parser_;
    uint64_t messages_processed_{0};

@@ -30,6 +30,19 @@ int main(int argc, char *argv[])
 
    market.Process();
 
+   market.Output(std::cout, 
+      [](const auto &symbol, const auto &instrument) -> std::string
+      {
+         std::ostringstream strm;
+         strm << symbol
+              << ',' << instrument.GetLargestTradeGap()
+              << ',' << instrument.GetTotalVolume()
+              << ',' << instrument.GetAverageWeightedPrice()
+              << ',' << instrument.GetHigh();
+         return strm.str();
+      }
+   );
+
    return 0;
 }
 
