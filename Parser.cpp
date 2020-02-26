@@ -15,3 +15,8 @@ std::string Parser::getRawMessage()
 
    throw std::logic_error("Error reading raw message");
 }
+
+bool Parser::IsEOF() const
+{
+   return in_.eof();
+}

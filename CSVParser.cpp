@@ -24,7 +24,10 @@ std::shared_ptr<Message> CSVParser::GetMessage()
    catch(const std::exception &e)
    {
       // EOF is probably not a real exception an requires its own type
-      std::cerr << "Exception: " << e.what() << std::endl;
+      if(!IsEOF())
+      {
+         std::cerr << "Exception: " << e.what() << std::endl;
+      }
    }
    return 0;
 }

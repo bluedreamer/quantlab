@@ -16,6 +16,8 @@ public:
    Parser &operator=(Parser &&) = default;
 
    virtual std::shared_ptr<Message> GetMessage() = 0;
+
+   bool IsEOF() const;
 protected:
    std::string getRawMessage();
 private:
