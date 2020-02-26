@@ -8,11 +8,12 @@ After building - it can be run with `./parser test_data/input.csv`
 
 ## Directories
 
-.
+```.
 ├── 3rdparty
 │   └── catch2
 ├── test_data
 └── tests
+```
 
 ### 3rdparty
 External software dependices
