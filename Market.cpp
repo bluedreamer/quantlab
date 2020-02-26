@@ -23,7 +23,13 @@ uint64_t Market::MessageCount() const
 
 std::vector<std::string> Market::GetSymbols() const
 {
-   return {};
+   std::vector<std::string> rc;
+   rc.reserve(data_.size());
+   for(const auto &[symbol, instrument] : data_)
+   {
+      rc.push_back(symbol);
+   }
+   return rc;
 }
 
 void Market::processMessage(std::shared_ptr<Message> message)
