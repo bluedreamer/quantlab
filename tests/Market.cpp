@@ -15,6 +15,6 @@ TEST_CASE("Test parsing of input file", "[market]")
    market.Process();
 
    REQUIRE(market.MessageCount() == 20391);
-   REQUIRE(market.GetSymbols().size() == 1);
+   REQUIRE(market.GetSymbols().size() == 343);
 
 }
