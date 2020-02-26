@@ -24,7 +24,9 @@ TEST_CASE("Test bad_trade1.csv", "[parser]")
    std::ifstream in("test_data/bad_trade1.csv");
    CSVParser     parser(in);
 
+   // TODO this test is broken because stol parses "12:30pm" as 12 an no errors
    auto message = parser.GetMessage();
+   REQUIRE(message == nullptr);
 }
 
 TEST_CASE("Test bad_trade2.csv", "[parser]")
@@ -33,6 +35,7 @@ TEST_CASE("Test bad_trade2.csv", "[parser]")
    CSVParser     parser(in);
 
    auto message = parser.GetMessage();
+   REQUIRE(message == nullptr);
 }
 
 TEST_CASE("Test bad_trade3.csv", "[parser]")
@@ -41,6 +44,7 @@ TEST_CASE("Test bad_trade3.csv", "[parser]")
    CSVParser     parser(in);
 
    auto message = parser.GetMessage();
+   REQUIRE(message == nullptr);
 }
 
 TEST_CASE("Test bad_trade4.csv", "[parser]")
@@ -49,6 +53,7 @@ TEST_CASE("Test bad_trade4.csv", "[parser]")
    CSVParser     parser(in);
 
    auto message = parser.GetMessage();
+   REQUIRE(message == nullptr);
 }
 
 TEST_CASE("Test bad_trade5.csv", "[parser]")
@@ -57,4 +62,5 @@ TEST_CASE("Test bad_trade5.csv", "[parser]")
    CSVParser     parser(in);
 
    auto message = parser.GetMessage();
+   REQUIRE(message == nullptr);
 }
