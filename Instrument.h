@@ -17,6 +17,7 @@ public:
    uint64_t GetTotalVolume() const;
    uint64_t GetLargestTradeGap() const;
    double GetAverageWeightedPrice() const;
+   uint64_t GetHigh() const;
 private:
    std::string symbol_{};
    uint64_t total_volume_{0}; ///< Accumulated volume of all trades
@@ -24,6 +25,7 @@ private:
    uint64_t largest_trade_gap_{0}; ///< Largest time gap between trades
    uint64_t total_value_traded_{0}; ///< Running total of Volume x Price for each trade
    // OHLC etc
+   uint64_t high_{0}; ///< High price for the session
 };
 
 // vim: ts=3 sw=3 ai et nohls mps=(\:),{\:},[\:],<\:> ff=unix ffs=unix bg=dark

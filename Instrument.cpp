@@ -35,5 +35,9 @@ double Instrument::GetAverageWeightedPrice() const
    return static_cast<double>(total_value_traded_) / static_cast<double>(total_volume_);
 }
 
+uint64_t Instrument::GetHigh() const
+{
+   return high_;
+}
 
 // vim: ts=3 sw=3 ai et nohls mps=(\:),{\:},[\:],<\:> ff=unix ffs=unix bg=dark

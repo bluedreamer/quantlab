@@ -23,7 +23,7 @@ public:
    void Process();
    uint64_t MessageCount() const;
    std::vector<std::string> GetSymbols() const;
-
+   const Instrument &FindInstrument(const std::string &symbol) const;
 private:
    std::unique_ptr<Parser> parser_;
    uint64_t messages_processed_{0};

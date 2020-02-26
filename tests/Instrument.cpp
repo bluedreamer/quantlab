@@ -9,6 +9,7 @@ TEST_CASE("Default ctor on instrument", "[instrument]")
    REQUIRE(instrument.GetTotalVolume() == 0);
    REQUIRE(instrument.GetLargestTradeGap() == 0);
    REQUIRE(instrument.GetAverageWeightedPrice() == Approx(0.0));
+   REQUIRE(instrument.GetHigh() == 0);
 }
 
 TEST_CASE("Single trade on instrument", "[instrument]")
@@ -20,6 +21,7 @@ TEST_CASE("Single trade on instrument", "[instrument]")
    REQUIRE(instrument.GetTotalVolume() == 286);
    REQUIRE(instrument.GetLargestTradeGap() == 0);
    REQUIRE(instrument.GetAverageWeightedPrice() == Approx(202.0));
+   REQUIRE(instrument.GetHigh() == 202);
 }
 
 TEST_CASE("Multiple trades on instrument", "[instrument]")
@@ -33,4 +35,5 @@ TEST_CASE("Multiple trades on instrument", "[instrument]")
    REQUIRE(instrument.GetTotalVolume() == 383);
    REQUIRE(instrument.GetLargestTradeGap() == 6'762'432);
    REQUIRE(instrument.GetAverageWeightedPrice() == Approx(200.545691906005));
+   REQUIRE(instrument.GetHigh() == 202);
 }

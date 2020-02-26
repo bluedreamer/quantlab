@@ -59,4 +59,14 @@ Instrument &Market::findOrAdd(const std::string &symbol)
    return data_[symbol];
 }
 
+const Instrument &Market::FindInstrument(const std::string &symbol) const
+{
+   auto result = data_.find(symbol);
+   if(result != data_.end())
+   {
+      return result->second;
+   }
+   throw std::logic_error("Cannot find symbol = " + symbol);
+}
+
 // vim: ts=3 sw=3 ai et nohls mps=(\:),{\:},[\:],<\:> ff=unix ffs=unix bg=dark
