@@ -13,6 +13,6 @@ BEGIN {
 END {
    for(symbol in total_volume)
    {
-      printf("\tREQUIRE(market.FindInstrument(\"%s\").GetTotalVolume() == %d);\n", symbol, total_volume[symbol]);
+      printf("\tREQUIRE(market.FindInstrument(\"%s\").GetHigh() == %d);\n", symbol, max_price[symbol]);
    }
 }
