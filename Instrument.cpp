@@ -1,6 +1,6 @@
 #include "Instrument.h"
 
-void Instrument::Trade(uint64_t timestamp, uint64_t volume, uint64_t price)
+void Instrument::Trade(TimeStamp timestamp, Volume volume, Price price)
 {
    // Most common 2nd or more trades
    if(last_trade_time_ != 0)
@@ -40,7 +40,7 @@ double Instrument::GetAverageWeightedPrice() const
    return static_cast<double>(total_value_traded_) / static_cast<double>(total_volume_);
 }
 
-uint64_t Instrument::GetHigh() const
+Price Instrument::GetHigh() const
 {
    return high_;
 }

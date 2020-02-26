@@ -5,7 +5,7 @@
 class Trade : public Message
 {
 public:
-   Trade(Message::TimeStamp timestamp, Message::Symbol symbol, Message::Volume volume, Message::Price price);
+   Trade(TimeStamp timestamp, Symbol symbol, Volume volume, Price price);
    ~Trade() override;
    Trade(const Trade &) = default;
    Trade(Trade &&)      = default;

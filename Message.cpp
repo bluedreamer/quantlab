@@ -1,18 +1,18 @@
 #include "Message.h"
 
-Message::Message(MsgType msg_type, Message::TimeStamp timestamp, Message::Symbol symbol)
+Message::Message(MsgType msg_type, TimeStamp timestamp, Symbol symbol)
    : msg_type_(msg_type)
    , timestamp_(timestamp)
    , symbol_(symbol)
 {
 }
 
-Message::TimeStamp Message::GetTimestamp() const
+TimeStamp Message::GetTimestamp() const
 {
    return timestamp_;
 }
 
-const Message::Symbol &Message::GetSymbol() const
+const Symbol &Message::GetSymbol() const
 {
    return symbol_;
 }

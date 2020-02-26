@@ -2,14 +2,11 @@
 
 #include <string>
 
+#include "public.h"
+
 class Message
 {
 public:
-   using TimeStamp = uint64_t;
-   using Symbol    = std::string;
-   using Volume    = uint64_t;
-   using Price     = uint64_t;
-
    enum class MsgType
    {
       Unknown,

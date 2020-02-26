@@ -1,7 +1,7 @@
 #include "Trade.h"
 #include "Message.h"
 
-Trade::Trade(Message::TimeStamp timestamp, Message::Symbol symbol, Message::Volume volume, Message::Price price)
+Trade::Trade(TimeStamp timestamp, Symbol symbol, Volume volume, Price price)
    : Message(MsgType::Trade, timestamp, std::move(symbol))
    , volume_(volume)
    , price_(price)
@@ -12,12 +12,12 @@ Trade::~Trade()
 {
 }
 
-Message::Volume Trade::GetVolume() const
+Volume Trade::GetVolume() const
 {
    return volume_;
 }
 
-Message::Price Trade::GetPrice() const
+Price Trade::GetPrice() const
 {
    return price_;
 }
