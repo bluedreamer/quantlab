@@ -31,6 +31,6 @@ TEST_CASE("Multiple trades on instrument", "[instrument]")
    instrument.Trade(51311533907, 19, 185);
 
    REQUIRE(instrument.GetTotalVolume() == 383);
-   REQUIRE(instrument.GetLargestTradeGap() == 11'403'710);
+   REQUIRE(instrument.GetLargestTradeGap() == 6'762'432);
    REQUIRE(instrument.GetAverageWeightedPrice() == Approx(200.545691906005));
 }
