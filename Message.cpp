@@ -1,7 +1,7 @@
 #include "Message.h"
 
 Message::Message(MsgType msg_type, Message::TimeStamp timestamp, Message::Symbol symbol)
-   :msg_type_(msg_type)
+   : msg_type_(msg_type)
    , timestamp_(timestamp)
    , symbol_(symbol)
 {

@@ -1,7 +1,7 @@
 #pragma once
 
-#include <memory>
 #include <iostream>
+#include <memory>
 
 #include "Message.h"
 
@@ -9,7 +9,7 @@ class Parser
 {
 public:
    explicit Parser(std::istream &in);
-   virtual ~Parser()              = 0;
+   virtual ~Parser()      = 0;
    Parser(const Parser &) = default;
    Parser(Parser &&)      = default;
    Parser &operator=(const Parser &) = default;
@@ -18,8 +18,10 @@ public:
    virtual std::shared_ptr<Message> GetMessage() = 0;
 
    bool IsEOF() const;
+
 protected:
    std::string getRawMessage();
+
 private:
    std::istream &in_;
 };

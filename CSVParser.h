@@ -9,13 +9,14 @@ class CSVParser : public Parser
 {
 public:
    explicit CSVParser(std::istream &in);
-   ~CSVParser()               = default;
+   ~CSVParser()                 = default;
    CSVParser(const CSVParser &) = default;
    CSVParser(CSVParser &&)      = default;
    CSVParser &operator=(const CSVParser &) = default;
    CSVParser &operator=(CSVParser &&) = default;
 
    std::shared_ptr<Message> GetMessage() override;
+
 private:
    static std::vector<std::string> split(std::string message);
 };

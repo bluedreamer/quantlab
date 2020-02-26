@@ -1,10 +1,10 @@
 #include "Market.h"
-#include "Parser.h"
 #include "Instrument.h"
 #include "Message.h"
+#include "Parser.h"
 
 Market::Market(std::unique_ptr<Parser> parser)
-   :parser_(std::move(parser))
+   : parser_(std::move(parser))
 {
 }
 
@@ -35,13 +35,13 @@ std::vector<std::string> Market::GetSymbols() const
 void Market::processMessage(std::shared_ptr<Message> message)
 {
    auto &instrument = findOrAdd(message->GetSymbol());
-   auto type = message->GetMsgType();
+   auto  type       = message->GetMsgType();
 
    switch(type)
    {
       case Message::MsgType::Trade:
          processTrade(instrument, message);
-      break;
+         break;
 
       default:
          throw std::logic_error("Unhandled message type");

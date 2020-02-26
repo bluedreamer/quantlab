@@ -4,7 +4,7 @@
 #include "Trade.h"
 
 CSVParser::CSVParser(std::istream &in)
-   :Parser(in)
+   : Parser(in)
 {
 }
 
@@ -14,7 +14,7 @@ std::shared_ptr<Message> CSVParser::GetMessage()
    try
    {
       auto raw_message = getRawMessage();
-      auto fields = split(std::move(raw_message));
+      auto fields      = split(std::move(raw_message));
       // validation is that trades have 4 fields
       if(fields.size() == 4)
       {
@@ -36,7 +36,7 @@ std::vector<std::string> CSVParser::split(std::string message)
 {
    std::vector<std::string> rc;
 
-   auto it =  message.find(',');
+   auto it = message.find(',');
    while(it != std::string::npos)
    {
       rc.emplace_back(message, 0, it);

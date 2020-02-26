@@ -5,8 +5,8 @@
 class Instrument
 {
 public:
-   Instrument()                = default;
-   ~Instrument()               = default;
+   Instrument()                   = default;
+   ~Instrument()                  = default;
    Instrument(const Instrument &) = default;
    Instrument(Instrument &&)      = default;
    Instrument &operator=(const Instrument &) = default;
@@ -16,14 +16,15 @@ public:
 
    uint64_t GetTotalVolume() const;
    uint64_t GetLargestTradeGap() const;
-   double GetAverageWeightedPrice() const;
+   double   GetAverageWeightedPrice() const;
    uint64_t GetHigh() const;
+
 private:
    std::string symbol_{};
-   uint64_t total_volume_{0}; ///< Accumulated volume of all trades
-   uint64_t last_trade_time_{0}; ///< Timestamp of last trade, zero if none
-   uint64_t largest_trade_gap_{0}; ///< Largest time gap between trades
-   uint64_t total_value_traded_{0}; ///< Running total of Volume x Price for each trade
+   uint64_t    total_volume_{0};       ///< Accumulated volume of all trades
+   uint64_t    last_trade_time_{0};    ///< Timestamp of last trade, zero if none
+   uint64_t    largest_trade_gap_{0};  ///< Largest time gap between trades
+   uint64_t    total_value_traded_{0}; ///< Running total of Volume x Price for each trade
    // OHLC etc
    uint64_t high_{0}; ///< High price for the session
 };

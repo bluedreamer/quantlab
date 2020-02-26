@@ -1,14 +1,14 @@
+#include <filesystem>
 #include <fstream>
 #include <iostream>
 #include <map>
 #include <sstream>
 #include <string>
 #include <vector>
-#include <filesystem>
 
-#include "public.h"
-#include "Market.h"
 #include "CSVParser.h"
+#include "Market.h"
+#include "public.h"
 
 int main(int argc, char *argv[])
 {
@@ -30,18 +30,12 @@ int main(int argc, char *argv[])
 
    market.Process();
 
-   market.Output(std::cout, 
-      [](const auto &symbol, const auto &instrument) -> std::string
-      {
-         std::ostringstream strm;
-         strm << symbol
-              << ',' << instrument.GetLargestTradeGap()
-              << ',' << instrument.GetTotalVolume()
-              << ',' << instrument.GetAverageWeightedPrice()
-              << ',' << instrument.GetHigh();
-         return strm.str();
-      }
-   );
+   market.Output(std::cout, [](const auto &symbol, const auto &instrument) -> std::string {
+      std::ostringstream strm;
+      strm << symbol << ',' << instrument.GetLargestTradeGap() << ',' << instrument.GetTotalVolume() << ','
+           << instrument.GetAverageWeightedPrice() << ',' << instrument.GetHigh();
+      return strm.str();
+   });
 
    return 0;
 }

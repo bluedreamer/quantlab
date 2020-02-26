@@ -3,7 +3,7 @@
 void Instrument::Trade(uint64_t timestamp, uint64_t volume, uint64_t price)
 {
    // Most common 2nd or more trades
-   if(last_trade_time_ !=0)
+   if(last_trade_time_ != 0)
    {
       auto difference = timestamp - last_trade_time_;
       if(difference > largest_trade_gap_)

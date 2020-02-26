@@ -6,28 +6,33 @@ class Message
 {
 public:
    using TimeStamp = uint64_t;
-   using Symbol = std::string;
-   using Volume = uint64_t;
-   using Price = uint64_t;
+   using Symbol    = std::string;
+   using Volume    = uint64_t;
+   using Price     = uint64_t;
 
-   enum class MsgType { Unknown, Trade };
+   enum class MsgType
+   {
+      Unknown,
+      Trade
+   };
 
    Message(MsgType msg_type, TimeStamp timestamp, Symbol symbol);
-   virtual ~Message()               = 0;
+   virtual ~Message()       = 0;
    Message(const Message &) = default;
    Message(Message &&)      = default;
    Message &operator=(const Message &) = default;
    Message &operator=(Message &&) = default;
 
-   TimeStamp GetTimestamp() const;
-   const Symbol &GetSymbol() const;
+   TimeStamp      GetTimestamp() const;
+   const Symbol & GetSymbol() const;
    virtual Volume GetVolume() const = 0;
-   virtual Price GetPrice() const = 0;
-   MsgType GetMsgType() const;
+   virtual Price  GetPrice() const  = 0;
+   MsgType        GetMsgType() const;
+
 private:
-   MsgType msg_type_{MsgType::Unknown};
+   MsgType   msg_type_{MsgType::Unknown};
    TimeStamp timestamp_{0};
-   Symbol symbol_;
+   Symbol    symbol_;
 };
 
 inline Message::~Message()

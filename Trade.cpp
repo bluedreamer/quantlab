@@ -1,8 +1,8 @@
-#include "Message.h"
 #include "Trade.h"
+#include "Message.h"
 
 Trade::Trade(Message::TimeStamp timestamp, Message::Symbol symbol, Message::Volume volume, Message::Price price)
-   :Message(MsgType::Trade, timestamp, std::move(symbol))
+   : Message(MsgType::Trade, timestamp, std::move(symbol))
    , volume_(volume)
    , price_(price)
 {

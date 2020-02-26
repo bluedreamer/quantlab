@@ -1,8 +1,8 @@
-#include <iostream>
 #include <fstream>
+#include <iostream>
 
-#include <catch2/catch.hpp>
 #include "../Trade.h"
+#include <catch2/catch.hpp>
 
 TEST_CASE("Message Types", "[types]")
 {

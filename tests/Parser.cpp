@@ -1,15 +1,15 @@
-#include <iostream>
 #include <fstream>
+#include <iostream>
 
-#include <catch2/catch.hpp>
 #include "../CSVParser.h"
 #include "../Market.h"
 #include "../Trade.h"
+#include <catch2/catch.hpp>
 
 TEST_CASE("Test parsing of first entry", "[parser]")
 {
    std::ifstream in("test_data/input.csv");
-   CSVParser parser(in);
+   CSVParser     parser(in);
 
    auto message = parser.GetMessage();
    REQUIRE(message);
@@ -22,7 +22,7 @@ TEST_CASE("Test parsing of first entry", "[parser]")
 TEST_CASE("Test bad_trade1.csv", "[parser]")
 {
    std::ifstream in("test_data/bad_trade1.csv");
-   CSVParser parser(in);
+   CSVParser     parser(in);
 
    auto message = parser.GetMessage();
 }
@@ -30,7 +30,7 @@ TEST_CASE("Test bad_trade1.csv", "[parser]")
 TEST_CASE("Test bad_trade2.csv", "[parser]")
 {
    std::ifstream in("test_data/bad_trade2.csv");
-   CSVParser parser(in);
+   CSVParser     parser(in);
 
    auto message = parser.GetMessage();
 }
@@ -38,7 +38,7 @@ TEST_CASE("Test bad_trade2.csv", "[parser]")
 TEST_CASE("Test bad_trade3.csv", "[parser]")
 {
    std::ifstream in("test_data/bad_trade3.csv");
-   CSVParser parser(in);
+   CSVParser     parser(in);
 
    auto message = parser.GetMessage();
 }
@@ -46,7 +46,7 @@ TEST_CASE("Test bad_trade3.csv", "[parser]")
 TEST_CASE("Test bad_trade4.csv", "[parser]")
 {
    std::ifstream in("test_data/bad_trade4.csv");
-   CSVParser parser(in);
+   CSVParser     parser(in);
 
    auto message = parser.GetMessage();
 }
@@ -54,7 +54,7 @@ TEST_CASE("Test bad_trade4.csv", "[parser]")
 TEST_CASE("Test bad_trade5.csv", "[parser]")
 {
    std::ifstream in("test_data/bad_trade5.csv");
-   CSVParser parser(in);
+   CSVParser     parser(in);
 
    auto message = parser.GetMessage();
 }
